@@ -1,0 +1,21 @@
+/* Navbar */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    padding-top: 20px;
+}
+
+.nav-link {
+    color: #edede9;
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 25px;
+    padding: 20px 20px;
+    
+}
+
+.nav-link:hover {
+    color: rgb(214, 214, 214);
+}

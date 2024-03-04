@@ -1,0 +1,12 @@
+/* Directory */
+
+.directory-container {
+    background-color: #a182765e;
+    overflow: hidden;
+}
+
+.directory-recipes {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
