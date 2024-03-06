@@ -1,0 +1,123 @@
+/* DrinkForm */
+
+.form-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: #f7f9f9;
+  padding: 40px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.11);
+}
+
+.form-input {
+  margin-bottom: 5px;
+  width: 400px;
+}
+
+Input {
+  border: none;
+}
+
+Input:hover {
+  border: 1px solid #f2f2f2;
+}
+
+label {
+  color: #353535;
+  font-size: 18px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-submit {
+  padding: 10px 20px;
+  font-size: 16px;
+  box-shadow: 1px 1px 4px #684f4656;
+  background-color: #a18276;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  width: 100px;
+}
+
+.form-close {
+  padding: 10px 20px;
+  font-size: 16px;
+  box-shadow: 1px 1px 4px #684f4638;
+  background-color: #a18276;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  width: 100px;
+}
+
+.form-close:active {
+  transform: scale(.97);
+}
+
+.form-submit:active {
+  transform: scale(.97);
+}
+
+.form-close:hover {
+  background-color: #b39b91;
+}
+
+.form-submit:hover {
+  background-color: #b39b91;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .form-container {
+    width: 80%;
+    padding: 20px;
+  }
+  
+  .form-input {
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-submit,
+  .form-close {
+    width: 150px;
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .form-container {
+    width: 90%;
+    padding: 10px;
+  }
+  
+  .form-input {
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-submit,
+  .form-close {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

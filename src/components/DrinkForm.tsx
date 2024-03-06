@@ -23,8 +23,8 @@ const DrinkForm = ( props: DrinkFormProps ) => {
     console.log(data);
     if (props.id && props.id.length > 0) {
       server_calls.update(props.id[0], data)
-      console.log(`Updated: ${ data.name } by ${ data.credit }`)
-    //   setTimeout(() => {window.location.reload()}, 100);
+      console.log(`Updated: ${ data.id }`)
+      setTimeout(() => {window.location.reload()}, 100);
       event.target.reset()
     } else {
         dispatch(chooseName(data.name));
@@ -35,7 +35,7 @@ const DrinkForm = ( props: DrinkFormProps ) => {
         dispatch(chooseIngredients(data.ingredients));
 
         server_calls.create(store.getState())
-        // setTimeout(() => {window.location.reload()}, 200);
+        setTimeout(() => {window.location.reload()}, 100);
         event.target.reset()
   
         props.onClose();
@@ -46,32 +46,35 @@ const DrinkForm = ( props: DrinkFormProps ) => {
     <div className="form-container">
         <form onSubmit={handleSubmit(onSubmit)} className="drink-form">
             <div className="form-input">
-                <label htmlFor="name">Drink Name</label>
-                <Input {...register('name')} name='name' placeholder="name" />
+                <label htmlFor="name">Name:</label>
+                <Input {...register('name')} name='name' placeholder="'Iced Latte'" />
             </div>
             <div className="form-input">
-                <label htmlFor="drink_type">Drink Type</label>
-                <Input {...register('drink_type')} name='drink_type' placeholder="drink_type" />
+                <label htmlFor="drink_type">Coffee Type:</label>
+                <Input {...register('drink_type')} name='drink_type' placeholder="'Latte'" />
             </div>
             <div className="form-input">
-                <label htmlFor="credit">Who Created this Drink?</label>
-                <Input {...register('credit')} name='credit' placeholder="credit" />
+                <label htmlFor="credit">Give Credit:</label>
+                <Input {...register('credit')} name='credit' placeholder="'Jane Doe'" />
             </div>
             <div className="form-input">
-                <label htmlFor="desc">Description</label>
-                <Input {...register('desc')} name='desc' placeholder="desc" />
+                <label htmlFor="desc">Description:</label>
+                <Input {...register('desc')} name='desc' placeholder="A refreshing beverage made with..." />
             </div>
             <div className="form-input">
-                <label htmlFor="directions">Directions</label>
-                <Input {...register('directions')} name='directions' placeholder="directions" />
+                <label htmlFor="directions">Directions:</label>
+                <Input {...register('directions')} name='directions' placeholder="Seperate with a period" />
             </div>
             <div className="form-input">
-                <label htmlFor="ingredients">Ingredients</label>
-                <Input {...register('ingredients')} name='ingredients' placeholder="ingredients" />
+                <label htmlFor="ingredients">Ingredients:</label>
+                <Input {...register('ingredients')} name='ingredients' placeholder="Seperate with a comma" />
             </div>
-            <div className="submit-container">
+            <div className="button-container">
                 <button className="form-submit">
                     Submit
+                </button>
+                <button className="form-close" onClick={props.onClose}>
+                    Close
                 </button>
             </div>
         </form>

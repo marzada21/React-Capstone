@@ -23,11 +23,6 @@ function Navbar() {
             <Link to='/directory' className="nav-link">
                 Drink Directory
             </Link>
-            {isAuthenticated && (
-              <Link to='/create' className="nav-link">
-                Create
-              </Link>
-            )}
             {
                 !isAuthenticated ?
             <Link to='/' onClick={signInOnClick} className="nav-link">

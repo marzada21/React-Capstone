@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 import '../assets/css/drinks.css';
 import { useGetData } from "../custom-hooks/FetchData";
 import DrinkModal from "./DrinkModal"
+import { useAuth0 } from "@auth0/auth0-react"
 
 interface Drink {
+  id: string,
   name: string,
   drink_type: string,
   credit: string,
@@ -19,6 +21,7 @@ function Drinks() {
   let [ open, setOpen ] = useState(false);
   const { getData } = useGetData();
   const [ selectionModel, setSelectionModel ] = useState<string[]>([])
+  const {isAuthenticated} = useAuth0()
   
   const handleOpen = () => {
     setOpen(true)
@@ -32,6 +35,7 @@ function Drinks() {
     server_calls.delete(selectionModel[0]);
     getData();
     console.log(`Selection Model: ${selectionModel}`);
+    setTimeout(() => {window.location.reload()}, 100);
   }
 
   useEffect(() => {
@@ -73,23 +77,28 @@ function Drinks() {
 
     <div className="container">
 
+    {!isAuthenticated ?
+      <></>
+      
+      :
       <div className="crud-buttons">
         <div className="add">
           <button onClick={handleOpen} className="crud-button">
-            <i className="fa-sharp fa-light fa-plus fa-2xl" style={{color: "#edede9"}}></i>
+            <h2><i className="fa-sharp fa-regular fa-plus-large fa-xl" style={{color: "#edede9"}}></i></h2>
           </button>
         </div>
         <button onClick={handleOpen} className="crud-button">
           <div className="update">
-            <i className="fa-light fa-pen fa-2xl" style={{color: "#edede9"}}></i>
+            <h2><i className="fa-light fa-pen fa-xl" style={{color: "#edede9"}}></i></h2>
           </div>
         </button>
         <button onClick={deleteData} className="crud-button">
           <div className="delete">
-            <i className="fa-sharp fa-light fa-trash fa-2xl" style={{color: "#edede9"}}></i>
+            <h2><i className="fa-sharp fa-light fa-trash fa-xl" style={{color: "#edede9"}}></i></h2>
           </div>
         </button>
       </div>
+      }
 
       {drinks.map((drink: Drink, index: number) => (
 
@@ -105,17 +114,18 @@ function Drinks() {
                 by: {drink.credit}
               </p>
 
-              <label htmlFor="checkbox">
+              <label htmlFor="demo_opt_1">
                 <input 
-                  type="checkbox" 
-                  id="checkbox" 
-                  name="checkbox" 
+                  type="radio" 
+                  id="demo_opt_1" 
+                  name="cssCheckbox"
+                  className="css-checkbox"
                   onClick={() => {
                     const newSelectionModel = [...selectionModel];
-                    if (newSelectionModel.includes(drink.name)) {
-                      newSelectionModel.splice(newSelectionModel.indexOf(drink.name), 1);
+                    if (newSelectionModel.includes(drink.id)) {
+                      newSelectionModel.splice(newSelectionModel.indexOf(drink.id), 1);
                     } else {
-                      newSelectionModel.push(drink.name);
+                      newSelectionModel.push(drink.id);
                     }
                     setSelectionModel(newSelectionModel);
                   }} />

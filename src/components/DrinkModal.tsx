@@ -1,4 +1,5 @@
 import DrinkForm from "./DrinkForm";
+import '../assets/css/modal.css';
 
 type Props = {
     id?: string[],
@@ -13,9 +14,6 @@ const DrinkModal = ( props: Props ) => {
             <div onClick={(e) => {
                 e.stopPropagation()
             }}>
-                <div className="modal">
-                    <p onClick={ props.onClose } className="close-modal">x</p>
-                </div>
                 <div className="modal-form">
                     <DrinkForm id={ props.id } onClose={ props.onClose }/>
                 </div>

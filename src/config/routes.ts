@@ -1,6 +1,5 @@
 import Directory from "../pages/Directory";
 import Landing from "../pages/Landing";
-import Create from "../pages/Create";
 
 interface RouteType {
     path: string,
@@ -18,11 +17,6 @@ const routes: RouteType[] = [
         path: "/directory",
         component: Directory,
         name: 'Drink Directory'
-    },
-    {
-        path: "/create",
-        component: Create,
-        name: 'Create'
     },
 ];
 

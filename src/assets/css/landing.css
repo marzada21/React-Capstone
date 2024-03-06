@@ -70,3 +70,56 @@
 .landing-btn-directory:active {
     transform: scale(.97);
 }
+
+
+@media only screen and (max-width: 768px) {
+    .landing-title {
+        font-size: 80px;
+        padding-top: 100px;
+        padding-right: 30px;
+        text-align: end;
+    }
+    
+    .landing-hook {
+        font-size: 30px;
+        padding-right: 30px;
+        text-align: end;
+    }
+    
+    .landing-btn-container {
+        padding-right: 30px;
+        padding: 20px;
+    }
+    
+    .landing-btn-directory {
+        width: 150px;
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .landing-title {
+        font-size: 60px;
+        padding-top: 80px;
+        padding-right: 20px;
+        text-align: end;
+    }
+    
+    .landing-hook {
+        font-size: 24px;
+        padding-right: 20px;
+        text-align: end;
+    }
+    
+    .landing-btn-container {
+        padding-right: 20px;
+        padding: 10px;
+    }
+    
+    .landing-btn-directory {
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
