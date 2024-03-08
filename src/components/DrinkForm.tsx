@@ -24,9 +24,10 @@ const DrinkForm = ( props: DrinkFormProps ) => {
     if (props.id && props.id.length > 0) {
       server_calls.update(props.id[0], data)
       console.log(`Updated: ${ data.id }`)
-      setTimeout(() => {window.location.reload()}, 100);
       event.target.reset()
+      setTimeout(() => {window.location.reload()}, 100);
     } else {
+        
         dispatch(chooseName(data.name));
         dispatch(chooseCredit(data.credit));
         dispatch(chooseType(data.drink_type));
@@ -35,8 +36,8 @@ const DrinkForm = ( props: DrinkFormProps ) => {
         dispatch(chooseIngredients(data.ingredients));
 
         server_calls.create(store.getState())
-        setTimeout(() => {window.location.reload()}, 100);
         event.target.reset()
+        setTimeout(() => {window.location.reload()}, 100);
   
         props.onClose();
       }
